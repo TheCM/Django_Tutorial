@@ -18,11 +18,11 @@ def detail(request, poll_id):
   return render(request, 'polls/detail.html', {'question':question})
 
 def results(request, poll_id):
-    question = get_object_or_404(Question, pk=poll_id)
+    question = get_object_or_404(Poll, pk=poll_id)
     return render(request, 'polls/results.html', {'question': question})
 
 def vote(request, poll_id):
-    p = get_object_or_404(Question, pk=poll_id)
+    p = get_object_or_404(Poll, pk=poll_id)
     try:
         selected_choice = p.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
