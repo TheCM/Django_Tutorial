@@ -5,7 +5,7 @@ from . import views
 
 urlpatterns = [
   #example: /polls/
-  url(r'^$', views.index,  name = 'index'),
+  url(r'^$', views.IndexView.as_view(),  name = 'index'),
   #example: /polls/5/
   url(r'^(?P<poll_id>[0-9]+)/$', views.detail,  name = 'detail'),  
   #example: /polls/5/results/
